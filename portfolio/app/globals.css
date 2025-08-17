@@ -1,8 +1,5 @@
 @import "tailwindcss";
 
-/* Tell Tailwind that "dark:" means ".dark …" (class strategy) */
-@custom-variant dark (&:where(.dark, .dark *));
-
 @layer base {
   html {
     scroll-behavior: smooth;
@@ -10,6 +7,29 @@
 
   body {
     @apply transition-colors duration-300;
+  }
+}
+
+/* Simple animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
