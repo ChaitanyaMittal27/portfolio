@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+/* Tell Tailwind that "dark:" means ".dark …" (class strategy) */
+@custom-variant dark (&:where(.dark, .dark *));
+
 @layer base {
   html {
     scroll-behavior: smooth;
