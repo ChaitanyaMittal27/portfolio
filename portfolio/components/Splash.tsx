@@ -13,7 +13,8 @@ export default function Splash({ onComplete }: SplashProps) {
   const [progress, setProgress] = useState(0);
   const [showCursor, setShowCursor] = useState(true);
 
-  const fullName = "Chaitanya Mittal";
+
+  const fullName = "Your Name"; // Replace with your actual name
   const codeText = "console.log('Welcome to my portfolio! 🚀');";
 
   // Cursor blinking
@@ -24,7 +25,8 @@ export default function Splash({ onComplete }: SplashProps) {
     return () => clearInterval(cursorInterval);
   }, []);
 
-  // Stage 1: Name typewriter (after 0.5s delay)
+
+  // Stage 1: Name typewriter (after 0.3s delay)
   useEffect(() => {
     if (currentStage === 1) {
       let index = 0;
@@ -87,7 +89,8 @@ export default function Splash({ onComplete }: SplashProps) {
       <div className="text-center max-w-2xl w-full px-6">
         {/* Logo */}
         <div className="mb-8">
-          <div className="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-blue-400 to-purple-500 rounded-full flex items-center justify-center shadow-lg animate-pulse">
+
+          <div className="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-blue-400 to-purple-500 rounded-full flex items-center justify-center shadow-lg animate-pulse progress-glow">
             <span className="text-xl font-bold text-white">
               {fullName
                 .split(" ")
@@ -103,40 +106,72 @@ export default function Splash({ onComplete }: SplashProps) {
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-3 font-mono">
               {displayedName}
               {currentStage === 1 && showCursor && (
-                <span className="text-green-400">|</span>
+                <span className="text-green-400 cursor-blink">|</span>
               )}
             </h1>
             {displayedName === fullName && (
-              <p className="text-lg text-gray-300 animate-fade-in">
-                Student Developer
+              <p className="text-lg text-gray-300 animate-fadeIn">
+                Full Stack Developer
               </p>
             )}
           </div>
         )}
 
-        {/* Simple Code Line */}
+
+        {/* Code Terminal */}
         {currentStage >= 2 && (
-          <div className="bg-black rounded-lg border border-gray-700 p-4 max-w-lg mx-auto">
+          <div className="bg-black rounded-lg border border-gray-700 p-4 max-w-lg mx-auto shadow-2xl">
+            {/* Terminal Header */}
+            <div className="flex items-center mb-3 pb-2 border-b border-gray-800">
+              <div className="flex space-x-1.5">
+                <div className="w-3 h-3 bg-red-500 rounded-full"></div>
+                <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+              </div>
+              <span className="ml-4 text-gray-500 text-xs font-mono">
+                terminal
+              </span>
+            </div>
+
+            {/* Code Line */}
             <div className="text-left">
-              <span className="text-gray-500 text-sm font-mono">01</span>
-              <span className="ml-3 text-blue-400 font-mono text-sm">
-                {displayedCode}
-                {currentStage === 2 && showCursor && (
-                  <span className="text-green-400">|</span>
+              <span className="text-gray-500 text-sm font-mono select-none">
+                01
+              </span>
+              <span className="ml-3 font-mono text-sm">
+                <span className="text-purple-400">console</span>
+                <span className="text-white">.</span>
+                <span className="text-blue-400">log</span>
+                <span className="text-white">(</span>
+                <span className="text-green-400">'</span>
+                <span className="text-green-400">
+                  {displayedCode.slice(12, -3)}{" "}
+                  {/* Extract just the message part */}
+                </span>
+                {currentStage === 2 &&
+                  showCursor &&
+                  displayedCode.length < codeText.length && (
+                    <span className="text-green-400 cursor-blink">|</span>
+                  )}
+                {displayedCode.length >= codeText.length && (
+                  <>
+                    <span className="text-green-400">'</span>
+                    <span className="text-white">);</span>
+                  </>
                 )}
               </span>
             </div>
 
             {/* Mini Progress Bar */}
-            <div className="mt-3">
-              <div className="bg-gray-800 rounded-full h-1 overflow-hidden">
+            <div className="mt-4">
+              <div className="bg-gray-800 rounded-full h-1.5 overflow-hidden">
                 <div
-                  className="h-full bg-gradient-to-r from-green-400 to-blue-500 transition-all duration-100 ease-out"
+                  className="h-full bg-gradient-to-r from-green-400 to-blue-500 transition-all duration-100 ease-out progress-glow"
                   style={{ width: `${progress}%` }}
                 ></div>
               </div>
-              <div className="flex justify-between text-xs text-gray-500 mt-1 font-mono">
-                <span>Loading...</span>
+              <div className="flex justify-between text-xs text-gray-500 mt-2 font-mono">
+                <span>Initializing...</span>
                 <span>{Math.round(progress)}%</span>
               </div>
             </div>
@@ -145,8 +180,23 @@ export default function Splash({ onComplete }: SplashProps) {
 
         {/* Success indicator */}
         {currentStage === 3 && (
-          <div className="mt-4 animate-fade-in">
-            <span className="text-green-400 text-sm font-mono">✓ Ready</span>
+          <div className="mt-6 animate-fadeIn">
+            <div className="flex items-center justify-center space-x-2">
+              <svg
+                className="w-5 h-5 text-green-400"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                  clipRule="evenodd"
+                />
+              </svg>
+              <span className="text-green-400 text-sm font-mono">
+                Portfolio Ready
+              </span>
+            </div>
           </div>
         )}
       </div>
