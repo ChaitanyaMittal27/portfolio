@@ -13,6 +13,7 @@ export default function Splash({ onComplete }: SplashProps) {
   const [progress, setProgress] = useState(0);
   const [showCursor, setShowCursor] = useState(true);
 
+
   const fullName = "Your Name"; // Replace with your actual name
   const codeText = "console.log('Welcome to my portfolio! 🚀');";
 
@@ -23,6 +24,7 @@ export default function Splash({ onComplete }: SplashProps) {
     }, 530);
     return () => clearInterval(cursorInterval);
   }, []);
+
 
   // Stage 1: Name typewriter (after 0.3s delay)
   useEffect(() => {
@@ -87,6 +89,7 @@ export default function Splash({ onComplete }: SplashProps) {
       <div className="text-center max-w-2xl w-full px-6">
         {/* Logo */}
         <div className="mb-8">
+
           <div className="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-blue-400 to-purple-500 rounded-full flex items-center justify-center shadow-lg animate-pulse progress-glow">
             <span className="text-xl font-bold text-white">
               {fullName
@@ -113,6 +116,7 @@ export default function Splash({ onComplete }: SplashProps) {
             )}
           </div>
         )}
+
 
         {/* Code Terminal */}
         {currentStage >= 2 && (
