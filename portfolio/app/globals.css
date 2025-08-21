@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+/* Tell Tailwind that "dark:" means ".dark …" (class strategy) */
+@custom-variant dark (&:where(.dark, .dark *));
+
 @layer base {
   html {
     scroll-behavior: smooth;
@@ -9,7 +12,6 @@
     @apply transition-colors duration-300;
   }
 }
-
 
 /* ADD THESE ANIMATIONS FOR SPLASH */
 @keyframes fadeIn {
@@ -26,7 +28,6 @@
 @keyframes slideUp {
   from {
     opacity: 0;
-
     transform: translateY(30px);
   }
   to {
@@ -34,7 +35,6 @@
     transform: translateY(0);
   }
 }
-
 
 @keyframes glow {
   0%,
@@ -64,7 +64,6 @@
 .progress-glow {
   animation: glow 2s ease-in-out infinite;
 }
-
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {
