@@ -9,7 +9,7 @@ export default function Skills() {
           Skills & Technologies
         </h2>
         <p className="text-xl text-gray-600 dark:text-gray-400">
-          Technologies I work with to bring ideas to life...
+          Technologies I work with to bring ideas to life
         </p>
       </div>
 

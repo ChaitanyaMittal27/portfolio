@@ -1,11 +1,12 @@
 import Section from "./Section";
+import Image from "next/image";
 
 export default function About() {
   return (
     <Section id="about" className="flex items-center justify-center">
       <div className="text-center max-w-4xl">
         <div className="mb-8">
-          <img
+          <Image
             src="/images/profile.jpg"
             alt="Chaitanya Mittal"
             className="w-48 h-48 md:w-64 md:h-64 rounded-full mx-auto object-cover shadow-2xl ring-4 ring-blue-500 ring-offset-4 ring-offset-white dark:ring-offset-gray-900"

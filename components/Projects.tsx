@@ -5,6 +5,7 @@ import Section from "./Section";
 import ProjectModal from "./ProjectModal";
 import { projects } from "@/data/projects";
 import { Project } from "@/types";
+import Image from "next/image";
 
 export default function Projects() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
@@ -42,7 +43,7 @@ export default function Projects() {
           >
             {/* Project Image */}
             <div className="relative h-48 md:h-56 overflow-hidden">
-              <img
+              <Image
                 src={project.image}
                 alt={project.title}
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
