@@ -14,7 +14,7 @@ export default function About() {
         </div>
 
         <h1 className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6">
-          Hi, I'm Chaitanya Mittal
+          Hi, I am Chaitanya Mittal
         </h1>
 
         <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-400 mb-4">

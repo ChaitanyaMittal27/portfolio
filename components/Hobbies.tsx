@@ -10,8 +10,8 @@ export default function Hobbies() {
         </h2>
         <div className="w-16 h-1 bg-gradient-to-r from-green-500 to-teal-600 mx-auto mb-6"></div>
         <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-          When I'm not coding, you'll find me pursuing these passions that keep
-          me inspired and balanced
+          When I am not coding, you will find me pursuing these passions that
+          keep me inspired and balanced
         </p>
       </div>
 
