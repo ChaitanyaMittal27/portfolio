@@ -17,7 +17,7 @@ export default function About() {
         </h1>
 
         <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-400 mb-4">
-          Full Stack Developer & UI/UX Enthusiast
+          Full Stack Developer & AI Enthusiast
         </p>
 
         <p className="text-lg text-gray-600 dark:text-gray-400 mb-8 leading-relaxed max-w-2xl mx-auto">
@@ -28,7 +28,7 @@ export default function About() {
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <a
-            href="/resume.pdf"
+            href="../data/resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg"
@@ -36,7 +36,7 @@ export default function About() {
             Download Resume
           </a>
           <a
-            href="mailto:your.email@example.com"
+            href="mailto:cma166@sfu.ca"
             className="px-8 py-4 border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white rounded-lg font-semibold transition-all duration-300 hover:scale-105"
           >
             Contact Me

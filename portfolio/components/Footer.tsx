@@ -5,7 +5,7 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="mb-4 md:mb-0">
             <a
-              href="https://github.com/your-username"
+              href="https://github.com/ChaitanyaMittal27/portfolio"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors duration-300 text-lg font-medium"
@@ -22,7 +22,7 @@ export default function Footer() {
           </div>
 
           <div className="text-center text-gray-600 dark:text-gray-400">
-            <p>&copy; 2024 Your Name. Built with Next.js & Tailwind CSS.</p>
+            <p>&copy; 2025 Anonymouse. Built with Next.js & Tailwind CSS.</p>
           </div>
 
           <div className="mt-4 md:mt-0">
