@@ -2,17 +2,17 @@
 
 import { useState, useEffect } from "react";
 
+const navItems = [
+  { href: "about", label: "About" },
+  { href: "skills", label: "Skills" },
+  { href: "experience", label: "Experience" },
+  { href: "projects", label: "Projects" },
+  { href: "hobbies", label: "Hobbies" },
+];
+
 export default function Navigation() {
   const [activeSection, setActiveSection] = useState("about");
   const [isScrolled, setIsScrolled] = useState(false);
-
-  const navItems = [
-    { href: "about", label: "About" },
-    { href: "skills", label: "Skills" },
-    { href: "experience", label: "Experience" },
-    { href: "projects", label: "Projects" },
-    { href: "hobbies", label: "Hobbies" },
-  ];
 
   // Track scroll position for nav styling
   useEffect(() => {

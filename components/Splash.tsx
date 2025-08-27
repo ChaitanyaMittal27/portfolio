@@ -139,7 +139,7 @@ export default function Splash({ onComplete }: SplashProps) {
                 <span className="text-white">.</span>
                 <span className="text-blue-400">log</span>
                 <span className="text-white">(</span>
-                <span className="text-green-400">'</span>
+                <span className="text-green-400">&apos;</span>
                 <span className="text-green-400">
                   {displayedCode.slice(12, -3)}{" "}
                   {/* Extract just the message part */}
@@ -151,7 +151,7 @@ export default function Splash({ onComplete }: SplashProps) {
                   )}
                 {displayedCode.length >= codeText.length && (
                   <>
-                    <span className="text-green-400">'</span>
+                    <span className="text-green-400">&apos;</span>
                     <span className="text-white">);</span>
                   </>
                 )}

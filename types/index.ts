@@ -10,11 +10,11 @@
  * Experience item shown in the carousel.
  */
 export interface ExpItem {
-  role: string; // "Software Engineer Intern"
-  company: string; // "SFU Lab" or "Tech Co."
-  period: string; // "May 2025 – Aug 2025"
-  summary?: string; // 1–2 lines if you don't have bullets yet
-  points?: string[]; // Optional: up to 3–4 resume-style bullets
+  role: string;
+  company: string;
+  period: string; // format: "May 2025 – Aug 2025"
+  summary?: string;
+  points?: string[];
 }
 
 /**
@@ -24,14 +24,16 @@ export interface ExpItem {
  * - `links` power the hover overlay icons (GitHub / Demo).
  */
 export interface Project {
-  id: string; // unique id
-  title: string; // project name (card heading)
-  image: string; // path in /public,  "/images/projects/app.png"
-  short: string; // 1–2 line description shown under the title
+  slug: string;
+  id?: string;
+  title: string;
+  image: string; // path
+  short: string; // 1–2 line description
   tags: string[]; // ["Next.js", "TypeScript", "Tailwind"]
+  bullets?: string[];
   links?: {
-    github?: string; // GitHub repo URL for hover icon
-    demo?: string; // Live demo URL for hover icon
+    github?: string;
+    demo?: string;
   };
-  alt?: string; // optional: image alt text for a11y/SEO
+  alt?: string;
 }

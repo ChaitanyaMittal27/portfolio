@@ -41,7 +41,7 @@ export default function Experience() {
                   </div>
 
                   <ul className="space-y-1">
-                    {exp.points.map((point, pointIndex) => (
+                    {(exp.points ?? []).map((point, pointIndex) => (
                       <li key={pointIndex} className="flex items-start">
                         <span className="text-blue-500 mr-3 mt-1 text-lg">
                           •

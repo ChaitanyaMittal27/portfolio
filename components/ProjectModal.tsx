@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import { Project } from "@/types";
+import Image from "next/image";
 
 interface ProjectModalProps {
   project: Project;
@@ -34,9 +35,11 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
       >
         {/* Header with Image */}
         <div className="relative">
-          <img
+          <Image
             src={project.image}
             alt={project.title}
+            width={640}
+            height={480}
             className="w-full h-48 object-cover rounded-t-xl"
           />
           <button
@@ -78,7 +81,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
               Key Features
             </h3>
             <ul className="space-y-2">
-              {project.bullets.map((bullet, index) => (
+              {(project.bullets ?? []).map((bullet, index) => (
                 <li key={index} className="flex items-start">
                   <span className="text-blue-600 dark:text-blue-400 mr-3 mt-1 text-sm">
                     •
@@ -110,9 +113,9 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
 
           {/* Action Buttons */}
           <div className="flex flex-col sm:flex-row gap-3">
-            {project.links.github && (
+            {project.links?.github && (
               <a
-                href={project.links.github}
+                href={project.links?.github}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center px-6 py-3 bg-gray-900 hover:bg-gray-800 text-white rounded-lg font-medium transition-all duration-300 hover:scale-105"
@@ -128,9 +131,9 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
               </a>
             )}
 
-            {project.links.demo && (
+            {project.links?.demo && (
               <a
-                href={project.links.demo}
+                href={project.links?.demo}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-all duration-300 hover:scale-105"

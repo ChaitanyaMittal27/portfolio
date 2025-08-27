@@ -31,7 +31,9 @@ export default function Projects() {
             key={project.slug}
             className="group relative bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer border border-gray-200 dark:border-gray-700 hover:border-blue-300 dark:hover:border-blue-600"
             onClick={() => setSelectedProject(project)}
-            onMouseEnter={() => setHoveredProject(project.slug)}
+            onMouseEnter={() =>
+              setHoveredProject(project.slug ?? project.title)
+            }
             onMouseLeave={() => setHoveredProject(null)}
             style={{
               animationDelay: `${index * 150}ms`,
@@ -83,9 +85,9 @@ export default function Projects() {
 
                   {/* Action Icons */}
                   <div className="flex space-x-3">
-                    {project.links.github && (
+                    {project.links?.github && (
                       <a
-                        href={project.links.github}
+                        href={project.links?.github}
                         target="_blank"
                         rel="noopener noreferrer"
                         onClick={(e) => e.stopPropagation()}
@@ -102,9 +104,9 @@ export default function Projects() {
                       </a>
                     )}
 
-                    {project.links.demo && (
+                    {project.links?.demo && (
                       <a
-                        href={project.links.demo}
+                        href={project.links?.demo}
                         target="_blank"
                         rel="noopener noreferrer"
                         onClick={(e) => e.stopPropagation()}
