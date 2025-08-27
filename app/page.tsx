@@ -11,6 +11,7 @@ import Experience from "@/components/Experience";
 import Projects from "@/components/Projects";
 import Hobbies from "@/components/Hobbies";
 import Footer from "@/components/Footer";
+import { Analytics } from "@vercel/analytics/next";
 
 export default function Home() {
   const [showSplash, setShowSplash] = useState(true);
@@ -21,6 +22,7 @@ export default function Home() {
 
       {!showSplash && (
         <>
+          <Analytics />
           <Navigation />
           <ThemeToggle />
           <RightBar />
