@@ -9,6 +9,8 @@ export default function About() {
           <Image
             src="/images/profile.jpg"
             alt="Chaitanya Mittal"
+            width={320}
+            height={320}
             className="w-48 h-48 md:w-64 md:h-64 rounded-full mx-auto object-cover shadow-2xl ring-4 ring-blue-500 ring-offset-4 ring-offset-white dark:ring-offset-gray-900"
           />
         </div>

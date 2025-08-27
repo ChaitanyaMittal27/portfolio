@@ -46,6 +46,8 @@ export default function Projects() {
               <Image
                 src={project.image}
                 alt={project.title}
+                width={320}
+                height={320}
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
               />
 
