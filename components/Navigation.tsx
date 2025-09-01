@@ -91,6 +91,16 @@ export default function Navigation() {
                 {label}
               </button>
             ))}
+
+            {/* Resume Link */}
+            <a
+              href="../data/resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-4 py-2 rounded-lg font-medium transition-all duration-300 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800"
+            >
+              Resume
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -114,7 +124,7 @@ export default function Navigation() {
           </button>
         </div>
 
-        {/* Mobile Navigation (you can expand this later) */}
+        {/* Mobile Navigation */}
         <div className="md:hidden mt-4 space-y-2">
           {navItems.map(({ href, label }) => (
             <button
@@ -129,6 +139,16 @@ export default function Navigation() {
               {label}
             </button>
           ))}
+
+          {/* Mobile Resume Link */}
+          <a
+            href="../data/resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block w-full text-left px-4 py-2 rounded-lg font-medium transition-all duration-300 text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800"
+          >
+            Resume
+          </a>
         </div>
       </div>
     </nav>
