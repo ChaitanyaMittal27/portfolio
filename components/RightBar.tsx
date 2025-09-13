@@ -41,7 +41,7 @@ export default function RightBar() {
     },
     {
       name: "Resume",
-      url: "../data/resume.pdf",
+      url: "/resume.pdf",
       icon: (
         <svg
           className="w-6 h-6"

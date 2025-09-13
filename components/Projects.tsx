@@ -30,7 +30,6 @@ export default function Projects() {
           <div
             key={project.slug}
             className="group relative bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer border border-gray-200 dark:border-gray-700 hover:border-blue-300 dark:hover:border-blue-600"
-            onClick={() => setSelectedProject(project)}
             onMouseEnter={() =>
               setHoveredProject(project.slug ?? project.title)
             }
@@ -128,13 +127,6 @@ export default function Projects() {
                         </svg>
                       </a>
                     )}
-
-                    {/* Click for Details Hint */}
-                    <div className="flex-1 flex justify-end">
-                      <span className="px-3 py-2 bg-white/20 text-white text-xs rounded-full font-medium backdrop-blur-sm">
-                        Click for details
-                      </span>
-                    </div>
                   </div>
                 </div>
               </div>

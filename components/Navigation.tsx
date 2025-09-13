@@ -94,7 +94,7 @@ export default function Navigation() {
 
             {/* Resume Link */}
             <a
-              href="../data/resume.pdf"
+              href="/resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="px-4 py-2 rounded-lg font-medium transition-all duration-300 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800"

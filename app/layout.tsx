@@ -11,6 +11,7 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   title: "Chaitanya Mittal - Portfolio",
   description: "Portfolio of Chaitanya Mittal - Full Stack Developer",
+  icons: "/favicon.ico",
 };
 
 export default function RootLayout({
