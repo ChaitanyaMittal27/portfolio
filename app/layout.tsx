@@ -11,6 +11,7 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   title: "Chaitanya Mittal - Portfolio",
   description: "Portfolio of Chaitanya Mittal - Full Stack Developer",
+  icons: "/favicon.ico",
 };
 
 export default function RootLayout({
@@ -40,7 +41,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${inter.className} ${jetbrainsMono.variable} bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300`}
+        className={`${inter.className} ${jetbrainsMono.variable} bg-transparent dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300`}
       >
         {children}
       </body>

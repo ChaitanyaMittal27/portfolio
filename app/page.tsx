@@ -27,8 +27,7 @@ export default function Home() {
           <ThemeToggle />
           <RightBar />
 
-          <main className="bg-white dark:bg-gray-900 transition-colors duration-300">
-            {/* Add padding-top to account for fixed navigation */}
+          <main className="bg-transparent dark:bg-gray-900 transition-colors duration-300">
             <div className="pt-20">
               <About />
               <Skills />

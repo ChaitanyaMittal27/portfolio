@@ -37,3 +37,10 @@ export interface Project {
   };
   alt?: string;
 }
+
+export interface Hobby {
+  icon: string;
+  title: string;
+  description: string;
+  emoji: string;
+}

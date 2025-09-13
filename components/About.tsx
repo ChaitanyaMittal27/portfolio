@@ -31,12 +31,10 @@ export default function About() {
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <a
-            href="../data/resume.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg"
+            href="/resume.pdf"
+            className="flex items-center px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg"
           >
-            Download Resume
+            View Resume
           </a>
           <a
             href="mailto:cma166@sfu.ca"

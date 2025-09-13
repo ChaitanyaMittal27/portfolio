@@ -108,7 +108,7 @@ export default function Splash({ onComplete }: SplashProps) {
             </h1>
             {displayedName === fullName && (
               <p className="text-lg text-gray-300 animate-fadeIn">
-                Full Stack Developer
+                Student Developer
               </p>
             )}
           </div>
