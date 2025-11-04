@@ -14,11 +14,7 @@ export const metadata: Metadata = {
   icons: "/favicon.ico",
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className="scroll-smooth">
       <head>
@@ -41,7 +37,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${inter.className} ${jetbrainsMono.variable} bg-transparent dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300`}
+        className={`${inter.className} ${jetbrainsMono.variable} text-gray-900 dark:text-white transition-colors duration-300`}
       >
         {children}
       </body>

@@ -27,11 +27,11 @@ export default function Home() {
           <ThemeToggle />
           <RightBar />
 
-          <main className="bg-transparent dark:bg-gray-900 transition-colors duration-300">
+          <main className="bg-transparent transition-colors duration-300">
             <div className="pt-20">
               <About />
-              <Skills />
               <Experience />
+              <Skills />
               <Projects />
               <Hobbies />
             </div>

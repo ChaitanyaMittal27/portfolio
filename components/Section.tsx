@@ -9,18 +9,14 @@ interface SectionProps {
   className?: string;
 }
 
-export default function Section({
-  id,
-  children,
-  className = "",
-}: SectionProps) {
+export default function Section({ id, children, className = "" }: SectionProps) {
   const { ref, isVisible } = useReveal();
 
   return (
     <section
       ref={ref}
       id={id}
-      className={`min-h-screen px-6 py-20 max-w-6xl mx-auto transition-all duration-700 ${
+      className={`px-6 py-16 max-w-6xl mx-auto transition-all duration-700 ${
         isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
       } ${className}`}
     >

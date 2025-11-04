@@ -3,6 +3,16 @@ import { ExpItem } from "@/types";
 // flat array for carousel (keeps working)
 export const experience: ExpItem[] = [
   {
+    role: "Junior Web Developer – RPRC Project",
+    company: "Blueprint SFU (Nonprofit Partnership)",
+    period: "Fall 2025 – Present",
+    points: [
+      "Selected to join the development team building a membership application portal for the Richmond Poverty Reduction Coalition (RPRC), a nonprofit focused on community support and poverty reduction.",
+      "Contributing to system design and technical planning using the MERN stack; mapping applicant data flows and Google Form intake into a secure backend schema for later implementation.",
+      "Working with designers and PMs to define component boundaries, authentication/authorization needs, and deployment patterns so the team can move quickly into development sprints.",
+    ],
+  },
+  {
     role: "Student Caller",
     company: "Simon Fraser University",
     period: "2023 – Present",
