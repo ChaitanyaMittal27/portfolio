@@ -12,16 +12,25 @@
     @apply transition-colors duration-300;
   }
 
-  /* Warm, welcoming light theme background */
-  body:not(.dark) {
-    background: linear-gradient(
-      135deg,
-      #fef7ed 0%,
-      /* warm orange-50 */ #fef3c7 25%,
-      /* amber-100 */ #fef3e2 50%,
-      /* orange-100 */ #f0f9ff 100% /* sky-50 */
-    );
+  /* LIGHT THEME - Soft Peachy Cream (Inviting & Warm) */
+  /* LIGHT THEME - Sunset Blend (Multi-Color) */
+  :root:not(.dark) body {
+    background: linear-gradient(135deg, #e8d4c8 0%, #e5d4d8 25%, #e0d4e0 50%, #e5d4d8 75%, #e8d4c8 100%) !important;
     min-height: 100vh;
+  }
+
+  :root:not(.dark) body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 20% 80%, rgba(249, 115, 22, 0.08) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(236, 72, 153, 0.08) 0%, transparent 50%),
+      radial-gradient(circle at 40% 40%, rgba(168, 85, 247, 0.06) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: -1;
   }
 
   /* Rich, modern dark theme background */
@@ -45,21 +54,6 @@
     pointer-events: none;
     z-index: -1;
     animation: subtle-glow 8s ease-in-out infinite;
-  }
-
-  /* Soft geometric pattern for warmth (light theme) */
-  body:not(.dark)::before {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: radial-gradient(circle at 25% 25%, rgba(251, 146, 60, 0.08) 0%, transparent 50%),
-      radial-gradient(circle at 75% 75%, rgba(59, 130, 246, 0.08) 0%, transparent 50%),
-      radial-gradient(circle at 50% 50%, rgba(34, 197, 94, 0.05) 0%, transparent 50%);
-    pointer-events: none;
-    z-index: -1;
   }
 }
 

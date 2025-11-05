@@ -15,23 +15,21 @@ export default function About() {
           />
         </div>
 
-        <h1 className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6">
-          Hi, I am Chaitanya Mittal
-        </h1>
+        <h1 className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6">Hi, I am Chaitanya Mittal</h1>
 
         <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-400 mb-4">
           Full Stack Developer & AI Enthusiast
         </p>
 
         <p className="text-lg text-gray-600 dark:text-gray-400 mb-8 leading-relaxed max-w-2xl mx-auto">
-          I create exceptional digital experiences through clean code and
-          thoughtful design. Passionate about building scalable applications
-          that solve real-world problems.
+          I create exceptional digital experiences through clean code and thoughtful design. Passionate about building
+          scalable applications that solve real-world problems.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <a
             href="/resume.pdf"
+            target="_blank"
             className="flex items-center px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg"
           >
             View Resume
