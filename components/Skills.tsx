@@ -1,31 +1,35 @@
 import Section from "./Section";
-import { skills } from "@/data/skills";
+import { skillCategories } from "@/data/skills";
 
 export default function Skills() {
   return (
     <Section id="skills">
-      <div className="text-center mb-16">
-        <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
-          Skills & Technologies
-        </h2>
-        <p className="text-xl text-gray-600 dark:text-gray-400">
-          Technologies I work with to bring ideas to life
-        </p>
+      <div className="text-center mb-12">
+        <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">Skills & Technologies</h2>
+        <p className="text-xl text-gray-600 dark:text-gray-400">Technologies I work with to bring ideas to life</p>
       </div>
 
-      <div className="flex flex-wrap gap-4 justify-center max-w-5xl mx-auto">
-        {skills.map((skill, index) => (
+      <div className="max-w-5xl mx-auto space-y-5">
+        {skillCategories.map((category, index) => (
           <div
-            key={skill}
-            className="group px-3 py-2 bg-white dark:bg-gray-800 rounded-2xl shadow-md hover:shadow-lg border border-gray-200 dark:border-gray-700 transition-all duration-300 hover:scale-105 hover:border-blue-300 dark:hover:border-blue-600"
+            key={category.label}
+            className="flex flex-col sm:flex-row gap-4 items-start animate-fade-in"
             style={{
-              animationDelay: `${index * 50}ms`,
-              animation: "fadeIn 0.6s ease-out forwards",
+              animationDelay: `${index * 100}ms`,
             }}
           >
-            <span className="text-gray-800 dark:text-gray-200 font-medium group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
-              {skill}
-            </span>
+            {/* Category Badge */}
+            <div className="flex-shrink-0">
+              <div className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 dark:from-blue-600 dark:to-purple-700 shadow-lg">
+                <span className="text-xl">{category.icon}</span>
+                <span className="text-sm font-bold text-white uppercase tracking-wide">{category.label}</span>
+              </div>
+            </div>
+
+            {/* Skills List */}
+            <div className="flex-1 flex items-center">
+              <p className="text-gray-700 dark:text-gray-300 leading-relaxed">{category.skills.join(", ")}</p>
+            </div>
           </div>
         ))}
       </div>

@@ -74,8 +74,7 @@ export default function Navigation() {
         .navbar-scrolled {
           background: rgba(255, 255, 255, 0.95);
           border-bottom: 1px solid rgba(229, 231, 235, 1);
-          box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
-            0 4px 6px -2px rgba(0, 0, 0, 0.05);
+          box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
           backdrop-filter: blur(12px);
         }
 
@@ -86,15 +85,9 @@ export default function Navigation() {
         }
 
         :global(.dark) .navbar-scrolled {
-          background: linear-gradient(
-            to right,
-            rgba(15, 23, 42, 0.95),
-            rgba(17, 24, 39, 0.95),
-            rgba(30, 41, 59, 0.95)
-          );
+          background: linear-gradient(to right, rgba(15, 23, 42, 0.95), rgba(17, 24, 39, 0.95), rgba(30, 41, 59, 0.95));
           border-bottom: 1px solid rgba(51, 65, 85, 0.5);
-          box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3),
-            0 4px 6px -2px rgba(99, 102, 241, 0.1);
+          box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(99, 102, 241, 0.1);
         }
       `}</style>
 
@@ -141,7 +134,7 @@ export default function Navigation() {
 
               {/* Enhanced Resume Link */}
               <a
-                href="/resume.pdf"
+                href="/Chaitanya_Mittal_resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="relative px-4 py-2 rounded-lg font-medium transition-all duration-300 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-slate-800/60 group"
@@ -174,27 +167,15 @@ export default function Navigation() {
               }`}
             >
               <svg
-                className={`w-6 h-6 transition-transform duration-300 ${
-                  isMobileMenuOpen ? "rotate-180" : "rotate-0"
-                }`}
+                className={`w-6 h-6 transition-transform duration-300 ${isMobileMenuOpen ? "rotate-180" : "rotate-0"}`}
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
               >
                 {isMobileMenuOpen ? (
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M6 18L18 6M6 6l12 12"
-                  />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                 ) : (
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M4 6h16M4 12h16M4 18h16"
-                  />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
                 )}
               </svg>
             </button>
@@ -223,18 +204,13 @@ export default function Navigation() {
 
               {/* Mobile Resume Link */}
               <a
-                href="/resume.pdf"
+                href="/Chaitanya_Mittal_resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block w-full text-left px-4 py-3 rounded-lg font-medium transition-all duration-300 text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-slate-800/60 hover:text-gray-900 dark:hover:text-white"
               >
                 Resume
-                <svg
-                  className="w-3 h-3 inline ml-1"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
+                <svg className="w-3 h-3 inline ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
