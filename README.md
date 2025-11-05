@@ -137,7 +137,7 @@ This project is open source and available under the [MIT License](LICENSE).
 
 **Chaitanya Mittal**
 
-- Email: cma166@sfu.ca
+- Email: chaitanya_mittal@sfu.ca
 - LinkedIn: [linkedin.com/in/chaitanya-mittal-47ab8a2a4](https://www.linkedin.com/in/chaitanya-mittal-47ab8a2a4/)
 - GitHub: [github.com/ChaitanyaMittal27](https://github.com/ChaitanyaMittal27)
 
