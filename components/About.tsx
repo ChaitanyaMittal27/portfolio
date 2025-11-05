@@ -28,7 +28,7 @@ export default function About() {
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <a
-            href="/resume.pdf"
+            href="/Chaitanya_Mittal_resume.pdf"
             target="_blank"
             className="flex items-center px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg"
           >

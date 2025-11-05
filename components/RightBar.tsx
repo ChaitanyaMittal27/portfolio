@@ -37,7 +37,7 @@ export default function RightBar() {
     },
     {
       name: "Resume",
-      url: "/resume.pdf",
+      url: "/Chaitanya_Mittal_resume.pdf",
       icon: (
         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path

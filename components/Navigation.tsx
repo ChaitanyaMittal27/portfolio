@@ -134,7 +134,7 @@ export default function Navigation() {
 
               {/* Enhanced Resume Link */}
               <a
-                href="/resume.pdf"
+                href="/Chaitanya_Mittal_resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="relative px-4 py-2 rounded-lg font-medium transition-all duration-300 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-slate-800/60 group"
@@ -204,7 +204,7 @@ export default function Navigation() {
 
               {/* Mobile Resume Link */}
               <a
-                href="/resume.pdf"
+                href="/Chaitanya_Mittal_resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block w-full text-left px-4 py-3 rounded-lg font-medium transition-all duration-300 text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-slate-800/60 hover:text-gray-900 dark:hover:text-white"
