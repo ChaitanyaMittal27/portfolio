@@ -26,18 +26,25 @@
 
   /* Rich, modern dark theme background */
   .dark body {
-    background: linear-gradient(
-      135deg,
-      #0a0e27 0%,
-      #1a1f3a 20%,
-      #1e1b4b 40%,
-      #2d1b69 60%,
-      #1e1b4b 80%,
-      #0a0e27 100%
-    ) !important;
+    background: linear-gradient(135deg, #0a0e27 0%, #12182e 25%, #1a1f3a 50%, #12182e 75%, #0a0e27 100%) !important;
     min-height: 100vh;
     position: relative;
     overflow-x: hidden;
+  }
+
+  .dark body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: radial-gradient(circle at 20% 80%, rgba(99, 102, 241, 0.12) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(168, 85, 247, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 40% 40%, rgba(59, 130, 246, 0.08) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: -1;
+    animation: subtle-glow 8s ease-in-out infinite;
   }
 
   /* Soft geometric pattern for warmth (light theme) */
@@ -53,23 +60,6 @@
       radial-gradient(circle at 50% 50%, rgba(34, 197, 94, 0.05) 0%, transparent 50%);
     pointer-events: none;
     z-index: -1;
-  }
-
-  /* Rich depth pattern for dark theme */
-  .dark body::before {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: radial-gradient(circle at 20% 80%, rgba(99, 102, 241, 0.15) 0%, transparent 50%),
-      radial-gradient(circle at 80% 20%, rgba(168, 85, 247, 0.12) 0%, transparent 50%),
-      radial-gradient(circle at 40% 40%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
-      radial-gradient(circle at 60% 70%, rgba(16, 185, 129, 0.08) 0%, transparent 50%);
-    pointer-events: none;
-    z-index: -1;
-    animation: subtle-glow 8s ease-in-out infinite;
   }
 }
 
