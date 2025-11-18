@@ -7,9 +7,9 @@ export const experience: ExpItem[] = [
     company: "Blueprint SFU – RPRC Project",
     period: "Fall 2025 – Present",
     points: [
-      "Joined the development team building a membership application portal for the Richmond Poverty Reduction Coalition (RPRC), a nonprofit focused on community support and poverty reduction.",
-      "Contributing using the MERN stack, closely collaborating with clients to gather requirements and feedback.",
-      "Working with designers and PMs to define component boundaries, authentication/authorization needs, and deployment patterns so the team can move quickly into development sprints.",
+      "Developing a responsive membership application portal using Next.js, React, and Tailwind CSS to streamline onboarding and support future online payment workflows.",
+      "Implementing secure backend services with Node.js, Express, and Supabase to support admin review, member management, and automated operational flows.",
+      "Collaborating with designers, PMs, and stakeholders to plan enhancements for the RPRC website, focusing on accessibility, content structure, and community-oriented modules for upcoming releases.",
     ],
   },
   {
