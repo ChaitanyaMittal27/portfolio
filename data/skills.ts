@@ -10,49 +10,51 @@ export const skillCategories: SkillCategory[] = [
   {
     label: "LANGUAGES",
     icon: "💻",
-    skills: ["JavaScript (ES6+)", "TypeScript", "Java", "Python", "SQL", "HTML5", "CSS3"],
+    skills: ["Java", "TypeScript", "JavaScript (ES6+)", "Python", "SQL", "HTML5", "CSS3", "C/C++"],
   },
   {
     label: "FRONTEND",
     icon: "🎨",
-    skills: ["React", "Next.js", "Redux", "Tailwind CSS", "Shadcn/UI", "DOM Parsing", "Three.js", "Vite"],
+    skills: [
+      "React",
+      "Next.js",
+      "Tailwind CSS",
+      "Shadcn/UI",
+      "Vite",
+      "DOM Manipulation",
+      "Responsive Design",
+      "UI/UX Design",
+    ],
   },
   {
     label: "BACKEND",
     icon: "⚙️",
-    skills: ["Node.js", "Express.js", "Spring Boot", "REST APIs", "GraphQL"],
+    skills: ["Spring Boot", "Node.js", "Express.js", "Flask", "RESTful APIs", "JWT Authentication", "OAuth 2.0 (PKCE)"],
   },
   {
     label: "DATABASES",
     icon: "🗄️",
-    skills: ["PostgreSQL", "MongoDB", "Supabase", "Firebase Firestore"],
+    skills: ["PostgreSQL", "MongoDB", "SQLite", "Supabase"],
   },
   {
-    label: "DEVOPS & TOOLS",
+    label: "CLOUD & DEVOPS",
     icon: "🚀",
-    skills: [
-      "Git & GitHub",
-      "CI/CD (GitHub Actions, Vercel)",
-      "Docker",
-      "Chrome Extensions (Manifest v3)",
-      "Maze (Usability Testing)",
-    ],
+    skills: ["AWS (EB, S3)", "Vercel", "Cloudflare", "CI/CD (GitHub Actions)", "Docker", "Environment Configuration"],
   },
   {
-    label: "AI / ML",
+    label: "TESTING & TOOLING",
+    icon: "🧪",
+    skills: ["Git & GitHub", "Postman", "Vitest", "Jest", "JUnit", "Chrome Extensions (Manifest v3)"],
+  },
+  {
+    label: "AI / LLM INTEGRATION",
     icon: "🤖",
-    skills: [
-      "Machine Learning (scikit-learn, PyTorch basics)",
-      "NLP fundamentals",
-      "Prompt Engineering",
-      "Google Gemini API",
-      "LLM Integration (OpenAI API)",
-    ],
+    skills: ["Prompt Engineering", "Google Gemini API", "OpenAI API", "LLM Integration", "NLP Fundamentals"],
   },
   {
     label: "OTHER",
     icon: "🎯",
-    skills: ["Agile/Scrum", "UI/UX Design (Figma)", "Responsive Design", "Test-Driven Development (Jest, JUnit)"],
+    skills: ["Agile/Scrum", "Accessibility (WCAG)", "Usability Testing (Maze)", "Figma", "Balsamiq"],
   },
 ];
 
