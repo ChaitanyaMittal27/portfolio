@@ -5,13 +5,13 @@ export const projects: Project[] = [
     slug: "course-planner-backend",
     title: "SFU Course Planner",
     image: "/images/projects/sfu-course-planner.png",
-    short: "High‑performance Spring Boot backend providing searchable course data APIs",
+    short: "Spring Boot–based course analytics platform deployed on AWS with OAuth authentication and real-time data.",
     bullets: [
       "Built and deployed a production full-stack web application using Next.js (TS) and Spring Boot, delivering live enrollment analytics and historical insights for 500+ courses across 50+ departments.",
       "Designed and operated a multi-cloud production architecture (Vercel, AWS EB, Supabase, Cloudflare), implementing CI/CD pipelines, HTTPS reverse proxying, and achieving 100–200 ms average API response times",
       "Implemented a scalable REST API (30+ endpoints) with DTO-based contracts, JWT authentication, OAuth 2.0 (PKCE), and role-based access control, with historical enrollment and grade data (6,000+ offerings)",
     ],
-    tags: [],
+    tags: ["Spring Boot", "AWS EB", "OAuth 2.0", "JWT", "Next.js", "PostgreSQL", "Cloudflare"],
     links: {
       github: "https://github.com/ChaitanyaMittal27/SFU_course_planner",
       demo: "https://sfucourseplanner.com/",
