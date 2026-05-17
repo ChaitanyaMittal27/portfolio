@@ -74,7 +74,9 @@ export default function Navigation() {
         .navbar-scrolled {
           background: rgba(255, 255, 255, 0.95);
           border-bottom: 1px solid rgba(229, 231, 235, 1);
-          box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+          box-shadow:
+            0 10px 15px -3px rgba(0, 0, 0, 0.1),
+            0 4px 6px -2px rgba(0, 0, 0, 0.05);
           backdrop-filter: blur(12px);
         }
 
@@ -87,7 +89,9 @@ export default function Navigation() {
         :global(.dark) .navbar-scrolled {
           background: linear-gradient(to right, rgba(15, 23, 42, 0.95), rgba(17, 24, 39, 0.95), rgba(30, 41, 59, 0.95));
           border-bottom: 1px solid rgba(51, 65, 85, 0.5);
-          box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(99, 102, 241, 0.1);
+          box-shadow:
+            0 10px 15px -3px rgba(0, 0, 0, 0.3),
+            0 4px 6px -2px rgba(99, 102, 241, 0.1);
         }
       `}</style>
 
@@ -134,7 +138,7 @@ export default function Navigation() {
 
               {/* Enhanced Resume Link */}
               <a
-                href="/Chaitanya_Mittal_resume.pdf"
+                href="/chaitanya_mittal_resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="relative px-4 py-2 rounded-lg font-medium transition-all duration-300 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-slate-800/60 group"
@@ -204,7 +208,7 @@ export default function Navigation() {
 
               {/* Mobile Resume Link */}
               <a
-                href="/Chaitanya_Mittal_resume.pdf"
+                href="/chaitanya_mittal_resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block w-full text-left px-4 py-3 rounded-lg font-medium transition-all duration-300 text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-slate-800/60 hover:text-gray-900 dark:hover:text-white"
