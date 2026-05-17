@@ -2,16 +2,47 @@ import { Project } from "@/types";
 
 export const projects: Project[] = [
   {
+    slug: "sfu-course-predictor",
+    title: "SFU Course Predictor",
+    image: "/images/projects/sfu-course-predictor.png",
+    short:
+      "ML system predicting SFU course offerings, capacity, and enrollment with automated retraining and a ChatGPT-style interface.",
+    bullets: [
+      "Trained a 3-model ML system (Gradient Boosting + Random Forest) on 48,900+ course-term rows predicting offering, capacity, and enrollment — achieving AUC 0.864, 74% accuracy, R² 0.886–0.906, and MAE under 15 seats/students on 1,522 unseen Spring 2026 courses.",
+      "Engineered 20 temporal lookback features across 19 semesters with strict no-leakage splitting, catching a critical data contamination bug where non-unique term indices caused all fall terms to leak into the test set.",
+      "Built a fully automated semester refresh pipeline via GitHub Actions running Python scripts to collect, refit, and deploy updated models to Hugging Face with atomic rollback on failure.",
+      "Integrated Google Gemini with a two-call architecture to parse free-text queries into structured model inputs, enabling a ChatGPT-style prediction interface alongside a structured manual input mode in Streamlit.",
+    ],
+    tags: ["scikit-learn", "pandas", "NumPy", "Streamlit", "GitHub Actions", "Hugging Face", "Google Gemini", "SQLite"],
+    links: {
+      github: "https://github.com/ChaitanyaMittal27/SFU_offering_predictor",
+      demo: "https://huggingface.co/spaces/ChaitanyaMittal27/sfucoursepredictor",
+    },
+  },
+
+  {
     slug: "course-planner-backend",
     title: "SFU Course Planner",
     image: "/images/projects/sfu-course-planner.png",
-    short: "Spring Boot–based course analytics platform deployed on AWS with OAuth authentication and real-time data.",
+    short:
+      "Production full-stack app for SFU course analytics with multi-cloud architecture, OAuth authentication, and personalized enrollment alerts.",
     bullets: [
-      "Built and deployed a production full-stack web application using Next.js (TS) and Spring Boot, delivering live enrollment analytics and historical insights for 500+ courses across 50+ departments.",
-      "Designed and operated a multi-cloud production architecture (Vercel, AWS EB, Supabase, Cloudflare), implementing CI/CD pipelines, HTTPS reverse proxying, and achieving 100–200 ms average API response times",
-      "Implemented a scalable REST API (30+ endpoints) with DTO-based contracts, JWT authentication, OAuth 2.0 (PKCE), and role-based access control, with historical enrollment and grade data (6,000+ offerings)",
+      "Built and deployed a production full-stack app using Next.js and Spring Boot enabling students to explore enrollment trends, visualize grade distributions, and compare courses across 500+ offerings and 50+ departments.",
+      "Implemented OAuth 2.0 PKCE and Supabase Auth supporting Google SSO and email login, enabling users to create accounts, bookmark courses, and receive daily enrollment alerts via EmailJS.",
+      "Reduced API response time from 7–8s to under 2s by diagnosing slow query patterns and introducing structured indexing on course codes and department keys in Supabase.",
+      "Designed a multi-cloud architecture (Vercel, AWS EB, Supabase, Cloudflare) with automated 24-hour data refresh via GitHub Actions, integrating grade data and RateMyProfessors ratings alongside live SFU enrollment data.",
     ],
-    tags: ["Spring Boot", "AWS EB", "OAuth 2.0", "JWT", "Next.js", "PostgreSQL", "Cloudflare"],
+    tags: [
+      "Spring Boot",
+      "Next.js",
+      "AWS EB",
+      "OAuth 2.0",
+      "JWT",
+      "Supabase",
+      "Cloudflare",
+      "GitHub Actions",
+      "EmailJS",
+    ],
     links: {
       github: "https://github.com/ChaitanyaMittal27/SFU_course_planner",
       demo: "https://sfucourseplanner.com/",
@@ -36,6 +67,22 @@ export const projects: Project[] = [
   },
 
   {
+    slug: "tom-and-jerry-maze-game",
+    title: "Tom & Jerry Maze Game",
+    image: "/images/projects/tom-jerry-maze.png",
+    short: "OOP‑driven Spring Boot backend exposing stateful maze logic via stateless REST APIs",
+    bullets: [
+      "Implemented movement, scoring, and collision rules with clean OOP and layered architecture",
+      "Refactored into MVC + DTOs for clear separation of concerns and testability",
+      "Exposed all transitions as REST endpoints to enable browser‑based multiplayer clients",
+    ],
+    tags: ["Java", "Spring Boot", "REST APIs", "OOP", "MVC"],
+    links: {
+      github: "https://github.com/ChaitanyaMittal27/TomAndJerryMazeGame-",
+    },
+  },
+
+  {
     slug: "portfolio-website",
     title: "Portfolio Website (This Site)",
     image: "/images/projects/portfolio.png",
@@ -49,22 +96,6 @@ export const projects: Project[] = [
     links: {
       github: "https://github.com/ChaitanyaMittal27/resume",
       demo: "/", // points to this site
-    },
-  },
-
-  {
-    slug: "tom-and-jerry-maze-game",
-    title: "Tom & Jerry Maze Game (Backend)",
-    image: "/images/projects/tom-jerry-maze.png",
-    short: "OOP‑driven Spring Boot backend exposing stateful maze logic via stateless REST APIs",
-    bullets: [
-      "Implemented movement, scoring, and collision rules with clean OOP and layered architecture",
-      "Refactored into MVC + DTOs for clear separation of concerns and testability",
-      "Exposed all transitions as REST endpoints to enable browser‑based multiplayer clients",
-    ],
-    tags: ["Java", "Spring Boot", "REST APIs", "OOP", "MVC"],
-    links: {
-      github: "https://github.com/ChaitanyaMittal27/TomAndJerryMazeGame-",
     },
   },
 
@@ -85,22 +116,6 @@ export const projects: Project[] = [
     },
   },
 
-  {
-    slug: "emergency-response-map",
-    title: "Emergency Response Map",
-    image: "/images/projects/emergency-response.png",
-    short: "Real‑time emergency dashboard with map visuals and accessibility‑first UI",
-    bullets: [
-      "Built React dashboard using map APIs and local storage for resilient, offline‑friendly UX",
-      "Applied colorblind‑safe palettes and spatial clarity to support high‑stress scenarios",
-      "Improved simulated response accuracy via diff‑based rendering for dynamic updates",
-    ],
-    tags: ["React", "JavaScript", "Map APIs", "State Management", "UX"],
-    links: {
-      github: "https://github.com/Yunhh-Hahn/272-Map-Assignment",
-      // demo: "",
-    },
-  },
   {
     slug: "ytbookmarker",
     title: "YTBookmarker",
@@ -131,6 +146,23 @@ export const projects: Project[] = [
     links: {
       github: "https://github.com/AndreiSva/stormhacks-2025",
       demo: "https://devpost.com/software/violin-flight",
+    },
+  },
+
+  {
+    slug: "emergency-response-map",
+    title: "Emergency Response Map",
+    image: "/images/projects/emergency-response.png",
+    short: "Real‑time emergency dashboard with map visuals and accessibility‑first UI",
+    bullets: [
+      "Built React dashboard using map APIs and local storage for resilient, offline‑friendly UX",
+      "Applied colorblind‑safe palettes and spatial clarity to support high‑stress scenarios",
+      "Improved simulated response accuracy via diff‑based rendering for dynamic updates",
+    ],
+    tags: ["React", "JavaScript", "Map APIs", "State Management", "UX"],
+    links: {
+      github: "https://github.com/Yunhh-Hahn/272-Map-Assignment",
+      // demo: "",
     },
   },
 ];

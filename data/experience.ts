@@ -5,41 +5,21 @@ export const experience: ExpItem[] = [
   {
     role: "Full Stack Developer",
     company: "Blueprint SFU – RPRC Project",
-    period: "Fall 2025 – Present",
+    period: "Sep 2025 – Present",
     points: [
-      "Developing a responsive membership application portal using Next.js, React, and Tailwind CSS to streamline onboarding and support future online payment workflows.",
-      "Implementing secure backend services with Node.js, Express, and Supabase to support admin review, member management, and automated operational flows.",
-      "Collaborating with designers, PMs, and stakeholders to plan enhancements for the RPRC website, focusing on accessibility, content structure, and community-oriented modules for upcoming releases.",
-    ],
-  },
-  {
-    role: "Student Caller",
-    company: "Simon Fraser University",
-    period: "2023 – Present",
-    points: [
-      "Reached out to alumni and students for engagement and fundraising initiatives.",
-      "Built communication and persuasion skills through hundreds of live calls.",
-      "Promoted university programs and strengthened alumni relations.",
-    ],
-  },
-  {
-    role: "Student Ambassador",
-    company: "Simon Fraser University",
-    period: "2023 – Present",
-    points: [
-      "Represented SFU at campus tours, orientations, and recruitment events.",
-      "Welcomed new students and guided them through transition into university life.",
-      "Collaborated with faculty and staff to support outreach activities.",
+      "Engineered a 3-step signup flow using React and Supabase Auth, implementing email/password authentication, multi-field profile collection, and email verification to securely onboard member and admin users.",
+      "Built a shared React component library (shadcn/ui, Tailwind CSS) with built-in validation and error handling, reused across 5+ form screens including signup, renewal, and profile editing flows.",
+      "Implemented user deletion via Supabase RPC and auth.admin.deleteUser to fully remove records from both database and authentication layers, enforcing admin-only access control.",
     ],
   },
   {
     role: "Peer Mentor – Computer Science",
     company: "Simon Fraser University",
-    period: "2024 – Present",
+    period: "Sep 2024 – Dec 2024",
     points: [
-      "Provided one-on-one mentorship to first-year CS students.",
-      "Helped with academic planning, study strategies, and technical skills.",
-      "Organized small group sessions to encourage collaborative learning.",
+      "Mentored first-year CS students in debugging, algorithm design, and foundational programming concepts through one-on-one and group sessions.",
+      "Facilitated collaborative problem-solving by encouraging pair programming and reducing fear of failure in technical environments.",
+      "Adapted explanations to diverse learning styles, building technical empathy and communication skills.",
     ],
   },
 ];
