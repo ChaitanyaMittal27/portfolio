@@ -39,35 +39,6 @@ export const projects: Project[] = [
   },
 
   {
-    slug: "course-planner-backend",
-    title: "SFU Course Planner",
-    image: "/images/projects/sfu-course-planner.png",
-    short:
-      "Production full-stack app for SFU course analytics with multi-cloud architecture, OAuth authentication, and personalized enrollment alerts.",
-    bullets: [
-      "Built and deployed a production full-stack app using Next.js and Spring Boot enabling students to explore enrollment trends, visualize grade distributions, and compare courses across 500+ offerings and 50+ departments.",
-      "Implemented OAuth 2.0 PKCE and Supabase Auth supporting Google SSO and email login, enabling users to create accounts, bookmark courses, and receive daily enrollment alerts via EmailJS.",
-      "Reduced API response time from 7–8s to under 2s by diagnosing slow query patterns and introducing structured indexing on course codes and department keys in Supabase.",
-      "Designed a multi-cloud architecture (Vercel, AWS EB, Supabase, Cloudflare) with automated 24-hour data refresh via GitHub Actions, integrating grade data and RateMyProfessors ratings alongside live SFU enrollment data.",
-    ],
-    tags: [
-      "Spring Boot",
-      "Next.js",
-      "AWS EB",
-      "OAuth 2.0",
-      "JWT",
-      "Supabase",
-      "Cloudflare",
-      "GitHub Actions",
-      "EmailJS",
-    ],
-    links: {
-      github: "https://github.com/ChaitanyaMittal27/SFU_course_planner",
-      demo: "https://sfucourseplanner.com/",
-    },
-  },
-
-  {
     slug: "ekantiksearch",
     title: "EkantikSearch",
     image: "/images/projects/ekantiksearch.png",
