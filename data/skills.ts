@@ -15,17 +15,26 @@ export const skillCategories: SkillCategory[] = [
   {
     label: "FRONTEND",
     icon: "🎨",
-    skills: ["React.js", "Next.js", "Tailwind CSS", "shadcn/ui", "Three.js", "Bootstrap", "Streamlit"],
+    skills: ["React.js", "Next.js", "Tailwind CSS", "shadcn/ui", "Three.js", "Bootstrap", "Streamlit", "Socket.IO"],
   },
   {
     label: "BACKEND",
     icon: "⚙️",
-    skills: ["Node.js", "Express.js", "Flask", "Spring Boot", "RESTful APIs", "JWT Authentication", "OAuth 2.0 (PKCE)"],
+    skills: [
+      "Node.js",
+      "Express.js",
+      "Flask",
+      "Spring Boot",
+      "RESTful APIs",
+      "JWT Authentication",
+      "OAuth 2.0 (PKCE)",
+      "Joi",
+    ],
   },
   {
     label: "DATABASES",
     icon: "🗄️",
-    skills: ["PostgreSQL", "MongoDB", "SQLite", "Supabase", "Supabase Auth"],
+    skills: ["PostgreSQL", "SQLite", "Supabase", "Supabase Auth", "Prisma"],
   },
   {
     label: "ML & DATA",
@@ -46,9 +55,11 @@ export const skillCategories: SkillCategory[] = [
     skills: [
       "GitHub Actions",
       "AWS Elastic Beanstalk",
+      "Google Cloud Platform (GCP)",
       "Vercel",
       "Cloudflare",
       "Docker",
+      "Nginx",
       "CI/CD",
       "Hugging Face Spaces",
     ],
@@ -59,6 +70,7 @@ export const skillCategories: SkillCategory[] = [
     skills: [
       "Git & GitHub",
       "Postman",
+      "Supertest",
       "Vitest",
       "Jest",
       "JUnit",

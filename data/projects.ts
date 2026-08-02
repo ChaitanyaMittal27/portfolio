@@ -2,21 +2,39 @@ import { Project } from "@/types";
 
 export const projects: Project[] = [
   {
-    slug: "sfu-course-predictor",
-    title: "SFU Course Predictor",
-    image: "/images/projects/sfu-course-predictor.png",
+    slug: "crowdsurf",
+    title: "CrowdSurf",
+    image: "/images/projects/crowdsurf.png",
     short:
-      "ML system predicting SFU course offerings, capacity, and enrollment with automated retraining and a ChatGPT-style interface.",
+      "Full-stack event photo-sharing platform with real-time uploads, role-based access, and a 12-entity Prisma/PostgreSQL schema.",
     bullets: [
-      "Trained a 3-model ML system (Gradient Boosting + Random Forest) on 48,900+ course-term rows predicting offering, capacity, and enrollment — achieving AUC 0.864, 74% accuracy, R² 0.886–0.906, and MAE under 15 seats/students on 1,522 unseen Spring 2026 courses.",
-      "Engineered 20 temporal lookback features across 19 semesters with strict no-leakage splitting, catching a critical data contamination bug where non-unique term indices caused all fall terms to leak into the test set.",
-      "Built a fully automated semester refresh pipeline via GitHub Actions running Python scripts to collect, refit, and deploy updated models to Hugging Face with atomic rollback on failure.",
-      "Integrated Google Gemini with a two-call architecture to parse free-text queries into structured model inputs, enabling a ChatGPT-style prediction interface alongside a structured manual input mode in Streamlit.",
+      "Built a full-stack event photo-sharing platform where attendees join a live event feed via QR code, upload photos in real time, and vote crowd favorites to the top of the gallery — backed by a 12-entity PostgreSQL schema modeled in Prisma across 8 migrations.",
+      "Implemented JWT authentication with an asymmetric ES256 keypair and refresh-token sessions, architecting a two-layer role-based authorization system (Admin, Organizer, User) enforced at the Express middleware layer so unauthorized access is blocked even if frontend guards are bypassed.",
+      "Integrated Socket.IO to broadcast photo uploads and likes in real time across event rooms, wrapping multi-table writes (event creation, join-request approval) in Prisma transaction blocks to guarantee atomicity.",
+      "Wrote 46 integration tests across 23 suites with Node's test runner and Supertest against a live PostgreSQL instance, then containerized the backend with a multi-stage Docker build and deployed the full stack via Docker Compose to a Google Cloud VM with Nginx serving the frontend.",
     ],
-    tags: ["scikit-learn", "pandas", "NumPy", "Streamlit", "GitHub Actions", "Hugging Face", "Google Gemini", "SQLite"],
+    tags: ["React", "Express", "TypeScript", "PostgreSQL", "Prisma", "Socket.IO", "Docker", "GitHub Actions"],
     links: {
-      github: "https://github.com/ChaitanyaMittal27/SFU_offering_predictor",
-      demo: "https://huggingface.co/spaces/ChaitanyaMittal27/sfucoursepredictor",
+      github: "https://github.com/ChaitanyaMittal27/CrowdSurf",
+    },
+  },
+
+  {
+    slug: "sfu-course-planner",
+    title: "SFU Course Planner",
+    image: "/images/projects/sfu-course-planner.png",
+    short:
+      "Production full-stack course discovery and analytics platform serving 35+ SFU students, with real-time enrollment tracking and automated notifications.",
+    bullets: [
+      "Designed and deployed a production full-stack web application at sfucourseplanner.com, supporting 35+ active users browsing 500+ courses across 50+ departments with enrollment insights not available through official SFU channels.",
+      "Diagnosed and resolved a performance bottleneck causing 13–15s response times through root-cause analysis, redesigning data retrieval to persist course and offering metadata in PostgreSQL and cutting end-user latency to under 5s.",
+      "Built an administrative dashboard for user management and system monitoring, and shipped an automated notification service using Spring Scheduler to detect enrollment changes and dispatch status-update emails via the Resend API.",
+      "Architected a multi-service cloud deployment across Vercel, AWS Elastic Beanstalk, and Cloudflare, solving a mixed HTTPS/HTTP communication issue between the two hosts by configuring Cloudflare as a reverse proxy — cutting HTTPS setup complexity without AWS Certificate Manager.",
+    ],
+    tags: ["Next.js", "Spring Boot", "PostgreSQL", "Supabase", "AWS Elastic Beanstalk", "Vercel", "Cloudflare", "OAuth", "JWT"],
+    links: {
+      github: "https://github.com/ChaitanyaMittal27/SFU_course_planner",
+      demo: "https://sfucourseplanner.com/",
     },
   },
 
