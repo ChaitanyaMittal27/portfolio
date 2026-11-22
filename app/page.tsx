@@ -1,45 +1,26 @@
-"use client";
-
-import { useState } from "react";
-import Splash from "@/components/Splash";
-import ThemeToggle from "@/components/ThemeToggle";
+import Providers from "@/components/Providers";
+import BackgroundGlow from "@/components/BackgroundGlow";
 import Navigation from "@/components/Navigation";
-import RightBar from "@/components/RightBar";
-import About from "@/components/About";
+import Hero from "@/components/Hero";
+import Projects from "@/components/Projects";
 import Skills from "@/components/Skills";
 import Experience from "@/components/Experience";
-import Projects from "@/components/Projects";
 import Hobbies from "@/components/Hobbies";
 import Footer from "@/components/Footer";
-import { Analytics } from "@vercel/analytics/next";
 
 export default function Home() {
-  const [showSplash, setShowSplash] = useState(true);
-
   return (
-    <>
-      {showSplash && <Splash onComplete={() => setShowSplash(false)} />}
-
-      {!showSplash && (
-        <>
-          <Analytics />
-          <Navigation />
-          <ThemeToggle />
-          <RightBar />
-
-          <main className="bg-transparent transition-colors duration-300">
-            <div className="pt-20">
-              <About />
-              <Experience />
-              <Skills />
-              <Projects />
-              <Hobbies />
-            </div>
-          </main>
-
-          <Footer />
-        </>
-      )}
-    </>
+    <Providers>
+      <BackgroundGlow />
+      <Navigation />
+      <main>
+        <Hero />
+        <Projects />
+        <Skills />
+        <Experience />
+        <Hobbies />
+      </main>
+      <Footer />
+    </Providers>
   );
 }

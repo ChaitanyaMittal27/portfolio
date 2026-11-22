@@ -1,51 +1,29 @@
-export interface Hobby {
-  icon: string;
-  title: string;
-  description: string;
-  emoji: string;
-}
+import { Hobby } from "@/types";
 
 export const hobbies: Hobby[] = [
   {
-    icon: "🎮",
-    emoji: "🎮",
-    title: "Gaming",
-    description:
-      "Love exploring virtual worlds and solving complex puzzles in strategy and adventure games.",
+    art: "gaming",
+    label: "Gaming",
+    title: "War Thunder",
+    description: "Jets in the air, tanks on the ground. Most evenings end in a dogfight.",
+    wide: true,
   },
   {
-    icon: "📚",
-    emoji: "📚",
-    title: "Reading",
-    description:
-      "Always learning through tech blogs, sci-fi novels, and books on personal development.",
+    art: "reading",
+    label: "Reading",
+    title: "Sherlock Holmes",
+    description: "Deduction over guesswork. It's basically debugging.",
   },
   {
-    icon: "🏃‍♂️",
-    emoji: "🏃‍♂️",
+    art: "running",
+    label: "Running",
     title: "Running",
-    description:
-      "Regular morning runs help me stay focused and energized for coding sessions.",
+    description: "Runs to clear my head between builds.",
   },
   {
-    icon: "✈️",
-    emoji: "✈️",
-    title: "Travel",
-    description:
-      "Exploring new cultures and places. Each trip brings fresh perspectives and inspiration.",
-  },
-  {
-    icon: "📸",
-    emoji: "📸",
-    title: "Photography",
-    description:
-      "Capturing moments and exploring composition - great for developing an eye for design.",
-  },
-  {
-    icon: "🎵",
-    emoji: "🎵",
-    title: "Music",
-    description:
-      "Playing guitar and keyboard. Music fuels creativity and problem-solving.",
+    art: "food",
+    label: "Food",
+    title: "Indian food",
+    description: "Indian food, and only Indian food. No exceptions.",
   },
 ];

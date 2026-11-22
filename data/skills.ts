@@ -1,82 +1,84 @@
-// Type definition for skill categories
-export interface SkillCategory {
-  label: string;
-  icon: string;
-  skills: string[];
+/**
+ * Every skill points at the work that proves it.
+ * `usedIn` holds project slugs (from data/projects.ts) or plain labels
+ * for work that isn't a project card (e.g. "Blueprint", "Coursework").
+ * Source: "Resume" master doc, Skills tab (Nov 2026).
+ */
+export interface Skill {
+  name: string;
+  usedIn: string[];
 }
 
-// Organized by category with metadata
+export interface SkillCategory {
+  label: string;
+  skills: Skill[];
+}
+
 export const skillCategories: SkillCategory[] = [
   {
-    label: "LANGUAGES",
-    icon: "💻",
-    skills: ["Java", "Python", "JavaScript (ES6+)", "TypeScript", "C/C++", "HTML5", "CSS3", "SQL"],
-  },
-  {
-    label: "FRONTEND",
-    icon: "🎨",
-    skills: ["React.js", "Next.js", "Tailwind CSS", "shadcn/ui", "Three.js", "Bootstrap", "Streamlit", "Socket.IO"],
-  },
-  {
-    label: "BACKEND",
-    icon: "⚙️",
+    label: "Languages",
     skills: [
-      "Node.js",
-      "Express.js",
-      "Flask",
-      "Spring Boot",
-      "RESTful APIs",
-      "JWT Authentication",
-      "OAuth 2.0 (PKCE)",
-      "Joi",
+      { name: "TypeScript", usedIn: ["sfu-course-planner", "quarrel-v2", "crowdsurf", "firstdue", "ekantiksearch", "violin-flight", "Blueprint"] },
+      { name: "Java", usedIn: ["sfu-course-planner", "tom-and-jerry-maze"] },
+      { name: "Python", usedIn: ["sfu-course-predictor", "firstdue", "ekantiksearch"] },
+      { name: "SQL", usedIn: ["sfu-course-planner", "quarrel-v2", "sfu-course-predictor", "firstdue"] },
+      { name: "Lua", usedIn: ["quarrel-v2"] },
+      { name: "C/C++", usedIn: ["Coursework"] },
     ],
   },
   {
-    label: "DATABASES",
-    icon: "🗄️",
-    skills: ["PostgreSQL", "SQLite", "Supabase", "Supabase Auth", "Prisma"],
-  },
-  {
-    label: "ML & DATA",
-    icon: "🤖",
+    label: "Frontend",
     skills: [
-      "scikit-learn",
-      "pandas",
-      "NumPy",
-      "Feature Engineering",
-      "Hugging Face Spaces",
-      "Google Gemini API",
-      "Azure Translator API",
+      { name: "React", usedIn: ["sfu-course-planner", "quarrel-v2", "crowdsurf", "ekantiksearch", "Blueprint"] },
+      { name: "Next.js", usedIn: ["sfu-course-planner", "firstdue", "Blueprint"] },
+      { name: "Tailwind CSS", usedIn: ["sfu-course-planner", "firstdue", "Blueprint"] },
+      { name: "shadcn/ui", usedIn: ["sfu-course-planner", "Blueprint"] },
+      { name: "React Hook Form", usedIn: ["Blueprint"] },
+      { name: "Three.js", usedIn: ["violin-flight"] },
     ],
   },
   {
-    label: "CLOUD & DEVOPS",
-    icon: "🚀",
+    label: "Backend",
     skills: [
-      "GitHub Actions",
-      "AWS Elastic Beanstalk",
-      "Google Cloud Platform (GCP)",
-      "Vercel",
-      "Cloudflare",
-      "Docker",
-      "Nginx",
-      "CI/CD",
-      "Hugging Face Spaces",
+      { name: "Node.js / Express", usedIn: ["crowdsurf"] },
+      { name: "Fastify", usedIn: ["quarrel-v2"] },
+      { name: "Spring Boot", usedIn: ["sfu-course-planner", "tom-and-jerry-maze"] },
+      { name: "REST APIs", usedIn: ["sfu-course-planner", "quarrel-v2", "crowdsurf", "tom-and-jerry-maze"] },
+      { name: "Socket.IO", usedIn: ["quarrel-v2", "crowdsurf"] },
+      { name: "BullMQ", usedIn: ["quarrel-v2"] },
+      { name: "JWT / OAuth", usedIn: ["sfu-course-planner", "quarrel-v2", "crowdsurf"] },
     ],
   },
   {
-    label: "TESTING & TOOLING",
-    icon: "🧪",
+    label: "Data",
     skills: [
-      "Git & GitHub",
-      "Postman",
-      "Supertest",
-      "Vitest",
-      "Jest",
-      "JUnit",
-      "Chrome Extensions (Manifest v3)",
-      "Figma",
-      "Balsamiq",
+      { name: "PostgreSQL", usedIn: ["sfu-course-planner", "quarrel-v2", "crowdsurf", "firstdue", "ekantiksearch", "Blueprint"] },
+      { name: "Redis", usedIn: ["quarrel-v2"] },
+      { name: "Supabase", usedIn: ["sfu-course-planner", "ekantiksearch", "Blueprint"] },
+      { name: "Prisma", usedIn: ["crowdsurf"] },
+      { name: "SQLite", usedIn: ["sfu-course-predictor"] },
+    ],
+  },
+  {
+    label: "Cloud & DevOps",
+    skills: [
+      { name: "AWS", usedIn: ["sfu-course-planner", "quarrel-v2"] },
+      { name: "Docker", usedIn: ["sfu-course-planner", "quarrel-v2", "crowdsurf"] },
+      { name: "GitHub Actions", usedIn: ["sfu-course-planner", "sfu-course-predictor", "ekantiksearch", "quarrel-v2"] },
+      { name: "Vercel", usedIn: ["sfu-course-planner", "ekantiksearch"] },
+      { name: "Cloudflare", usedIn: ["sfu-course-planner"] },
+      { name: "Nginx", usedIn: ["quarrel-v2", "crowdsurf"] },
+    ],
+  },
+  {
+    label: "Testing & ML",
+    skills: [
+      { name: "Vitest", usedIn: ["sfu-course-planner", "quarrel-v2", "firstdue", "Blueprint"] },
+      { name: "Playwright", usedIn: ["quarrel-v2"] },
+      { name: "JUnit", usedIn: ["sfu-course-planner"] },
+      { name: "scikit-learn", usedIn: ["sfu-course-predictor"] },
+      { name: "pandas", usedIn: ["sfu-course-predictor", "firstdue"] },
+      { name: "Gemini API", usedIn: ["sfu-course-predictor", "quarrel-v2", "firstdue"] },
     ],
   },
 ];
