@@ -1,207 +1,162 @@
 "use client";
 
 import { useState } from "react";
-import Section from "./Section";
-import ProjectModal from "./ProjectModal";
-import { projects } from "@/data/projects";
-import { Project } from "@/types";
 import Image from "next/image";
+import { ArrowUpRight } from "lucide-react";
+import { projects } from "@/data/projects";
+import type { Project } from "@/types";
+import { useSkillFilter } from "./Providers";
+import ProjectSheet from "./ProjectSheet";
+import Reveal from "./Reveal";
+import SectionHeading from "./SectionHeading";
+
+const featured = projects.filter((p) => p.featured);
+const others = projects.filter((p) => !p.featured);
 
 export default function Projects() {
-  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
-  const [hoveredProject, setHoveredProject] = useState<string | null>(null);
+  const { isActive, skill } = useSkillFilter();
+  const [open, setOpen] = useState<Project | null>(null);
+  const [preview, setPreview] = useState<Project>(others[0]);
 
   return (
-    <Section id="projects">
-      <div className="text-center mb-16">
-        <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
-          Featured Projects
-        </h2>
-        <div className="w-16 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto mb-6"></div>
-        <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-          Here are a few of my favorite projects that I have built over the past
-          few years!
-        </p>
-      </div>
+    <section id="work" aria-labelledby="work-h" className="relative">
+      <div className="mx-auto max-w-[1120px] px-6 pt-24 pb-12">
+        <Reveal className="mb-14">
+          <SectionHeading index="01" label="Work" title="Selected work" id="work-h" />
+        </Reveal>
 
-      {/* 2x2 Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
-        {projects.map((project, index) => (
-          <div
-            key={project.slug}
-            className="group relative bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer border border-gray-200 dark:border-gray-700 hover:border-blue-300 dark:hover:border-blue-600"
-            onMouseEnter={() =>
-              setHoveredProject(project.slug ?? project.title)
-            }
-            onMouseLeave={() => setHoveredProject(null)}
-            style={{
-              animationDelay: `${index * 150}ms`,
-              transform:
-                hoveredProject === project.slug
-                  ? "translateY(-8px)"
-                  : "translateY(0px)",
-            }}
-          >
-            {/* Project Image */}
-            <div className="relative h-48 md:h-56 overflow-hidden">
+        {/* Featured: equal rows, image side alternates */}
+        <div className="flex flex-col gap-24">
+          {featured.map((p, i) => {
+            const active = isActive(p.slug);
+            return (
+              <Reveal key={p.slug}>
+                <article
+                  id={`project-${p.slug}`}
+                  className={`flex flex-col items-center gap-10 transition-opacity duration-300 md:gap-12 ${
+                    i % 2 === 1 ? "md:flex-row-reverse" : "md:flex-row"
+                  } ${active ? "opacity-100" : "opacity-30"}`}
+                >
+                  <button
+                    type="button"
+                    onClick={() => setOpen(p)}
+                    aria-label={`Open details for ${p.title}`}
+                    className={`group w-full overflow-hidden rounded-2xl border bg-surface px-5 pt-5 transition-colors md:flex-[1.35] ${
+                      skill && active ? "border-accent" : "border-line hover:border-line-strong"
+                    }`}
+                  >
+                    <Image
+                      src={p.image}
+                      alt=""
+                      width={1200}
+                      height={750}
+                      className="h-[240px] w-full rounded-t-[10px] object-cover object-top transition-transform duration-500 group-hover:scale-[1.02] sm:h-[320px]"
+                    />
+                  </button>
+
+                  <div className="flex w-full flex-col gap-4 md:flex-1">
+                    <div className="flex flex-wrap items-center gap-2.5">
+                      <span className="font-mono text-xs tracking-[0.06em] text-muted uppercase">{p.context}</span>
+                      {p.award && (
+                        <span className="rounded-full border border-amber-400/35 bg-amber-400/15 px-2.5 py-0.5 text-xs font-semibold text-amber-700 dark:text-amber-200">
+                          {p.award}
+                        </span>
+                      )}
+                    </div>
+                    <h3 className="text-[32px] font-semibold tracking-[-0.02em]">{p.title}</h3>
+                    <p className="text-base leading-relaxed text-muted">{p.short}</p>
+
+                    {p.stats && (
+                      <dl className="grid grid-cols-3 gap-3 border-y border-line py-4">
+                        {p.stats.map((s) => (
+                          <div key={s.label} className="flex flex-col-reverse">
+                            <dt className="text-[13px] text-muted">{s.label}</dt>
+                            <dd className="font-mono text-2xl font-medium sm:text-[26px]">{s.value}</dd>
+                          </div>
+                        ))}
+                      </dl>
+                    )}
+
+                    <p className="font-mono text-[13px] text-muted">{p.tags.slice(0, 5).join(" · ")}</p>
+
+                    <div className="flex flex-wrap items-center gap-5 text-sm font-medium">
+                      {p.links?.demo && (
+                        <a href={p.links.demo} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 hover:text-accent">
+                          {p.demoLabel ?? "Live site"}
+                          <ArrowUpRight aria-hidden="true" className="size-4" />
+                        </a>
+                      )}
+                      {p.links?.github && (
+                        <a href={p.links.github} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 hover:text-accent">
+                          Code
+                          <ArrowUpRight aria-hidden="true" className="size-4" />
+                        </a>
+                      )}
+                      <button type="button" onClick={() => setOpen(p)} className="hover:text-accent">
+                        Details →
+                      </button>
+                    </div>
+                  </div>
+                </article>
+              </Reveal>
+            );
+          })}
+        </div>
+
+        {/* More projects: plain rows with a hover preview */}
+        <Reveal className="mt-32 flex flex-col gap-5">
+          <h3 className="text-[22px] font-semibold tracking-tight">More projects</h3>
+          <div className="flex items-start gap-10">
+            <ul className="min-w-0 flex-1 border-t border-line">
+              {others.map((p) => {
+                const active = isActive(p.slug);
+                const link = p.links?.demo ?? p.links?.github;
+                const isPreview = preview.slug === p.slug;
+                return (
+                  <li
+                    key={p.slug}
+                    id={`project-${p.slug}`}
+                    onMouseEnter={() => setPreview(p)}
+                    onFocus={() => setPreview(p)}
+                    className={`flex flex-wrap items-baseline gap-x-6 gap-y-1.5 border-b border-line px-3 py-5 transition-[opacity,background-color] duration-300 ${
+                      active ? "opacity-100" : "opacity-30"
+                    } ${isPreview ? "bg-fg/[0.03]" : ""}`}
+                  >
+                    <div className="flex w-full flex-col sm:w-[180px] sm:shrink-0">
+                      <button type="button" onClick={() => setOpen(p)} className="text-left text-base font-semibold hover:text-accent">
+                        {p.title}
+                      </button>
+                      <span className="font-mono text-[11px] text-faint">{p.context}</span>
+                    </div>
+                    <p className="min-w-0 flex-1 basis-[260px] text-[15px] text-muted">{p.short}</p>
+                    <span className="font-mono text-xs text-faint">{p.year}</span>
+                    {link && (
+                      <a href={link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-sm font-medium hover:text-accent">
+                        {p.links?.demo ? (p.demoLabel ?? "Live") : "Code"}
+                        <ArrowUpRight aria-hidden="true" className="size-4" />
+                      </a>
+                    )}
+                  </li>
+                );
+              })}
+            </ul>
+
+            <figure className="sticky top-24 hidden w-[340px] shrink-0 flex-col gap-2.5 rounded-[14px] border border-line bg-surface p-3 lg:flex">
               <Image
-                src={project.image}
-                alt={project.title}
-                width={320}
-                height={320}
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                key={preview.slug}
+                src={preview.image}
+                alt={`${preview.title} screenshot`}
+                width={680}
+                height={425}
+                className="h-[200px] w-full rounded-lg object-cover object-top"
               />
-
-              {/* Overlay that appears on hover */}
-              <div
-                className={`absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent transition-opacity duration-300 ${
-                  hoveredProject === project.slug ? "opacity-100" : "opacity-0"
-                }`}
-              >
-                {/* Skills Pills on Hover */}
-                <div
-                  className={`absolute bottom-4 left-4 right-4 transition-all duration-500 ${
-                    hoveredProject === project.slug
-                      ? "translate-y-0 opacity-100"
-                      : "translate-y-4 opacity-0"
-                  }`}
-                >
-                  <div className="flex flex-wrap gap-2 mb-3">
-                    {project.tags.slice(0, 4).map((tag) => (
-                      <span
-                        key={tag}
-                        className="px-2 py-1 bg-blue-500/90 text-white text-xs rounded-full font-medium backdrop-blur-sm"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                    {project.tags.length > 4 && (
-                      <span className="px-2 py-1 bg-gray-500/90 text-white text-xs rounded-full font-medium backdrop-blur-sm">
-                        +{project.tags.length - 4}
-                      </span>
-                    )}
-                  </div>
-
-                  {/* Action Icons */}
-                  <div className="flex space-x-3">
-                    {project.links?.github && (
-                      <a
-                        href={project.links?.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        onClick={(e) => e.stopPropagation()}
-                        className="p-2 bg-gray-900/80 hover:bg-gray-800 text-white rounded-full transition-all duration-300 hover:scale-110 backdrop-blur-sm"
-                        aria-label="View source code"
-                      >
-                        <svg
-                          className="w-5 h-5"
-                          fill="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-                        </svg>
-                      </a>
-                    )}
-
-                    {project.links?.demo && (
-                      <a
-                        href={project.links?.demo}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        onClick={(e) => e.stopPropagation()}
-                        className="p-2 bg-blue-600/80 hover:bg-blue-700 text-white rounded-full transition-all duration-300 hover:scale-110 backdrop-blur-sm"
-                        aria-label="View live demo"
-                      >
-                        <svg
-                          className="w-5 h-5"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                          />
-                        </svg>
-                      </a>
-                    )}
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Project Info */}
-            <div className="p-6">
-              <h3 className="text-xl md:text-2xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
-                {project.title}
-              </h3>
-
-              <p className="text-gray-600 dark:text-gray-400 leading-relaxed line-clamp-3">
-                {project.short}
-              </p>
-
-              {/* Default visible tech stack (2-3 main ones) */}
-              <div
-                className={`mt-4 transition-all duration-300 ${
-                  hoveredProject === project.slug ? "opacity-30" : "opacity-100"
-                }`}
-              >
-                <div className="flex flex-wrap gap-2">
-                  {project.tags.slice(0, 3).map((tag) => (
-                    <span
-                      key={tag}
-                      className="px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-sm rounded-full font-medium"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            {/* Hover Indicator */}
-            <div
-              className={`absolute top-4 right-4 transition-all duration-300 ${
-                hoveredProject === project.slug
-                  ? "opacity-100 scale-100"
-                  : "opacity-0 scale-75"
-              }`}
-            >
-              <div className="p-2 bg-white/90 dark:bg-gray-800/90 rounded-full shadow-lg backdrop-blur-sm">
-                <svg
-                  className="w-4 h-4 text-blue-600 dark:text-blue-400"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
-                  />
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
-                  />
-                </svg>
-              </div>
-            </div>
+              <figcaption className="font-mono text-xs text-muted">{preview.title}</figcaption>
+            </figure>
           </div>
-        ))}
+        </Reveal>
       </div>
 
-      {/* Project Modal */}
-      {selectedProject && (
-        <ProjectModal
-          project={selectedProject}
-          onClose={() => setSelectedProject(null)}
-        />
-      )}
-    </Section>
+      <ProjectSheet project={open} onClose={() => setOpen(null)} />
+    </section>
   );
 }

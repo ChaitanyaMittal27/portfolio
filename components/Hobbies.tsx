@@ -1,40 +1,46 @@
-import Section from "./Section";
 import { hobbies } from "@/data/hobbies";
+import type { HobbyArt as Art } from "@/types";
+import HobbyArt from "./HobbyArt";
+import Reveal from "./Reveal";
+import SectionHeading from "./SectionHeading";
+
+const tint: Record<Art, { bg: string; label: string }> = {
+  gaming: { bg: "bg-blue-500/[0.06]", label: "text-blue-700 dark:text-blue-300" },
+  reading: { bg: "bg-amber-500/[0.06]", label: "text-amber-700 dark:text-amber-300" },
+  running: { bg: "bg-emerald-500/[0.06]", label: "text-emerald-700 dark:text-emerald-300" },
+  food: { bg: "bg-orange-500/[0.06]", label: "text-orange-700 dark:text-orange-300" },
+};
 
 export default function Hobbies() {
   return (
-    <Section id="hobbies">
-      <div className="text-center mb-12">
-        <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">Beyond Coding</h2>
-        <div className="w-16 h-1 bg-gradient-to-r from-green-500 to-teal-600 mx-auto mb-6"></div>
-        <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-          When I am not coding, you will find me pursuing these passions
-        </p>
+    <section id="beyond" aria-labelledby="beyond-h" className="relative flex min-h-svh items-center">
+      <div className="mx-auto w-full max-w-[1120px] px-6 py-28">
+        <Reveal className="mb-10 flex flex-col gap-4">
+          <SectionHeading index="04" label="Beyond code" title="Beyond code" id="beyond-h" />
+          <p className="text-base text-muted">What I do when I&apos;m not shipping. Hover a card.</p>
+        </Reveal>
+
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+          {hobbies.map((h, i) => (
+            <Reveal key={h.art} delay={i * 0.06} className={h.wide ? "md:col-span-3" : ""}>
+              <article
+                className={`hob-card relative overflow-hidden rounded-2xl border border-line p-7 ${tint[h.art].bg} ${
+                  h.wide ? "h-[300px]" : "h-[260px]"
+                }`}
+              >
+                <HobbyArt art={h.art} />
+                <div className={`relative flex flex-col gap-2 ${h.wide ? "max-w-[360px]" : "max-w-[220px]"}`}>
+                  <span className={`font-mono text-xs ${tint[h.art].label}`}>
+                    {String(i + 1).padStart(2, "0")} · {h.label}
+                  </span>
+                  <h3 className={`font-semibold tracking-[-0.02em] ${h.wide ? "text-2xl" : "text-[22px]"}`}>{h.title}</h3>
+                  <p className="text-[15px] leading-relaxed text-muted">{h.description}</p>
+                </div>
+              </article>
+            </Reveal>
+          ))}
+        </div>
       </div>
-
-      {/* Compact 3-column grid */}
-      <div className="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        {hobbies.map((hobby, index) => (
-          <div
-            key={hobby.title}
-            className="group bg-white dark:bg-gray-800 rounded-xl p-4 shadow-md hover:shadow-lg border border-gray-200 dark:border-gray-700 transition-all duration-300 hover:scale-105 hover:border-green-400 dark:hover:border-green-500 animate-fade-in"
-            style={{
-              animationDelay: `${index * 60}ms`,
-            }}
-          >
-            {/* Icon */}
-            <div className="text-3xl mb-2 group-hover:scale-110 transition-transform duration-300">{hobby.emoji}</div>
-
-            {/* Title */}
-            <h3 className="text-base font-bold text-gray-900 dark:text-white mb-2 group-hover:text-green-600 dark:group-hover:text-green-400 transition-colors duration-300">
-              {hobby.title}
-            </h3>
-
-            {/* Description - compact */}
-            <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">{hobby.description}</p>
-          </div>
-        ))}
-      </div>
-    </Section>
+    </section>
   );
 }

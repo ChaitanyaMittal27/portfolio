@@ -2,35 +2,45 @@
  * ===============================
  * Global Type Definitions
  * ===============================
- * Keep all cross-app interfaces here so components & data
- * stay consistent and easy to refactor.
  */
 
-/**
- * Experience item shown in the carousel.
- */
 export interface ExpItem {
   role: string;
   company: string;
-  period: string; // format: "May 2025 – Aug 2025"
+  period: string; // "May 2025 – Aug 2025"
   summary?: string;
   points?: string[];
+  type?: "work" | "volunteer";
+  tags?: string[];
+  /** Shown expanded (with bullets) in the timeline */
+  featured?: boolean;
 }
 
-/**
- * Project card displayed in the 2-up grid.
- * - `image` is used for the card thumbnail.
- * - `tags` are simple strings rendered as colorful chips (GitHub-style).
- * - `links` power the hover overlay icons (GitHub / Demo).
- */
+export interface ProjectStat {
+  value: string; // "60+"
+  label: string; // "active users"
+}
+
 export interface Project {
   slug: string;
   id?: string;
   title: string;
-  image: string; // path
+  image: string; // path under /public
   short: string; // 1–2 line description
-  tags: string[]; // ["Next.js", "TypeScript", "Tailwind"]
+  tags: string[];
   bullets?: string[];
+  /** e.g. "Solo · Live in production" */
+  context?: string;
+  /** e.g. "Fall Hacks 2026 Winner" */
+  award?: string;
+  /** Featured projects get a full row; the rest go in "More projects" */
+  featured?: boolean;
+  /** Up to 3 headline numbers for featured rows */
+  stats?: ProjectStat[];
+  /** Year shown in the "More projects" list */
+  year?: string;
+  /** Label for the demo link, e.g. "Play it" (defaults to "Live site") */
+  demoLabel?: string;
   links?: {
     github?: string;
     demo?: string;
@@ -38,9 +48,13 @@ export interface Project {
   alt?: string;
 }
 
+export type HobbyArt = "gaming" | "reading" | "running" | "food";
+
 export interface Hobby {
-  icon: string;
-  title: string;
+  art: HobbyArt;
+  label: string; // "Gaming"
+  title: string; // "War Thunder"
   description: string;
-  emoji: string;
+  /** Spans the full row */
+  wide?: boolean;
 }
